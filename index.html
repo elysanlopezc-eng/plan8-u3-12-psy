@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Plan - Workplace Dynamics: Integration & Final Portfolio (ESL B2-C1)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        montanoBlue: '#1269A8',
+                        montanoYellow: '#F7D615',
+                        montanoGreen: '#54887D',
+                        montanoLightBlue: '#88B5C7',
+                        montanoOlive: '#A6B046',
+                        montanoBg: '#F2F5E9',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #F2F5E9;
+            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body class="h-full flex flex-col overflow-x-hidden">
+
+    <!-- Top Navigation / Header with Fullscreen Button & Logo -->
+    <header class="bg-montanoBlue text-white shadow-md px-6 py-4 flex flex-wrap justify-between items-center gap-4">
+        <div class="flex items-center space-x-4">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyEop0yf6lZ7Jk9MILZxF1rBj4Oqs5esyhIQ&s" alt="Colegio Montano Logo" class="h-12 w-12 rounded-full bg-white object-contain p-1 shadow" onerror="this.src='https://placehold.co/50x50/1269A8/FFFFFF?text=CM'">
+            <div>
+                <h1 class="text-lg md:text-xl font-bold">Colegio Montano | Interactive Digital Whiteboard</h1>
+                <p class="text-xs md:text-sm text-montanoLightBlue">12th Mercadotecnia | ESL B2-C1 | Plan 8, Unit 3 | Teacher: Elysa López</p>
+            </div>
+        </div>
+        <div class="flex items-center space-x-3">
+            <span class="text-xs bg-montanoGreen px-3 py-1.5 rounded-full font-medium text-white shadow-sm">
+                <i class="fa-solid fa-calendar-days mr-1"></i> Unit 3 Plan 8
+            </span>
+            <button onclick="toggleFullScreen()" class="bg-montanoYellow text-gray-900 px-4 py-2 rounded-lg font-bold text-sm shadow hover:bg-yellow-400 transition flex items-center gap-2">
+                <i class="fa-solid fa-expand"></i> Fullscreen
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 flex flex-col gap-6">
+
+        <!-- Header Pedagogical Overview Card -->
+        <section class="bg-white rounded-2xl shadow-md p-5 border-l-8 border-montanoBlue">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                    <h2 class="text-xs font-bold uppercase tracking-wider text-montanoBlue mb-1">Main Topic</h2>
+                    <p class="text-base font-semibold text-gray-800">Workplace Dynamics: Integration and Final Portfolio</p>
+                </div>
+                <div>
+                    <h2 class="text-xs font-bold uppercase tracking-wider text-montanoGreen mb-1">Competency & Learning Outcome</h2>
+                    <p class="text-xs text-gray-700 leading-relaxed"><strong>Competency:</strong> Synthesizes core concepts of I/O psychology, emotional intelligence, performance evaluation, and business ethics to solve complex organizational problems. <br><strong>Outcome:</strong> Resolves an integrated multidisciplinary case study, presents team solutions, and compiles final Activity 4 professional portfolio evidence.</p>
+                </div>
+                <div>
+                    <h2 class="text-xs font-bold uppercase tracking-wider text-montanoOlive mb-1">Montano Habits & Soft Skills</h2>
+                    <div class="flex flex-wrap gap-1 mt-1">
+                        <span class="text-[10px] bg-montanoBg text-montanoBlue font-bold px-2 py-0.5 rounded border border-montanoLightBlue">Sinergizar</span>
+                        <span class="text-[10px] bg-montanoBg text-montanoGreen font-bold px-2 py-0.5 rounded border border-montanoGreen">Begin with the End in Mind</span>
+                        <span class="text-[10px] bg-montanoBg text-gray-700 font-bold px-2 py-0.5 rounded border border-gray-300">Sharpen the Saw</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Tabs Navigation -->
+        <nav class="flex flex-wrap gap-2 border-b border-gray-300 pb-2">
+            <button onclick="switchTab('tab1')" id="btn-tab1" class="tab-btn px-4 py-2.5 rounded-t-lg font-semibold text-sm transition flex items-center gap-2 bg-montanoBlue text-white shadow">
+                <i class="fa-solid fa-puzzle-piece"></i> I) Retrieval & Concept Map (~10m)
+            </button>
+            <button onclick="switchTab('tab2')" id="btn-tab2" class="tab-btn px-4 py-2.5 rounded-t-lg font-semibold text-sm transition flex items-center gap-2 bg-white text-gray-700 hover:bg-montanoLightBlue hover:text-white">
+                <i class="fa-solid fa-users-gear"></i> II) Integrated Case Study (30m)
+            </button>
+            <button onclick="switchTab('tab3')" id="btn-tab3" class="tab-btn px-4 py-2.5 rounded-t-lg font-semibold text-sm transition flex items-center gap-2 bg-white text-gray-700 hover:bg-montanoLightBlue hover:text-white">
+                <i class="fa-solid fa-folder-open"></i> III) Portfolio & Checklist (20m)
+            </button>
+            <button onclick="switchTab('tab4')" id="btn-tab4" class="tab-btn px-4 py-2.5 rounded-t-lg font-semibold text-sm transition flex items-center gap-2 bg-white text-gray-700 hover:bg-montanoLightBlue hover:text-white">
+                <i class="fa-solid fa-flag-checkered"></i> IV) Reflection & Exit Ticket (10m)
+            </button>
+        </nav>
+
+        <!-- Tab I: Retrieval & Concept Map -->
+        <div id="tab1" class="tab-content flex flex-col gap-4">
+            <div class="bg-white rounded-xl shadow p-6 border-t-4 border-montanoYellow">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-gray-800 flex items-center gap-2">
+                        <i class="fa-solid fa-puzzle-piece text-montanoYellow text-xl"></i> Retrieval Challenge & Concept Map (10 minutes)
+                    </h3>
+                    <span class="text-xs bg-yellow-100 text-yellow-800 font-bold px-3 py-1 rounded-full">Unit Synthesis</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div class="bg-montanoBg p-5 rounded-xl border border-montanoLightBlue">
+                        <h4 class="font-bold text-montanoBlue text-base mb-2"><i class="fa-solid fa-network-wired mr-1"></i> The Unit 3 Web of Concepts</h4>
+                        <p class="text-gray-700 text-sm mb-3 leading-relaxed">Connect how emotional intelligence, performance appraisals, motivation theories, conflict resolution, and business ethics interlock to create healthy, productive marketing organizations.</p>
+                        <ul class="text-xs text-gray-600 space-y-1 list-disc list-inside">
+                            <li>How does emotional regulation prevent workplace conflict?</li>
+                            <li>How do KPIs and ethical leadership ensure fair performance evaluations?</li>
+                        </ul>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="p-3 bg-blue-50 rounded-lg border border-blue-100 flex items-start gap-3">
+                            <i class="fa-solid fa-bullseye text-montanoBlue mt-1"></i>
+                            <div>
+                                <h5 class="font-bold text-sm text-gray-800">Integration Goal</h5>
+                                <p class="text-xs text-gray-600">Demonstrate holistic command of workplace dynamics across all preceding unit topics.</p>
+                            </div>
+                        </div>
+                        <div class="p-3 bg-emerald-50 rounded-lg border border-emerald-100 flex items-start gap-3">
+                            <i class="fa-solid fa-seedling text-montanoGreen mt-1"></i>
+                            <div>
+                                <h5 class="font-bold text-sm text-gray-800">Montano Habit</h5>
+                                <p class="text-xs text-gray-600"><strong>Sinergizar:</strong> Combining diverse psychological, operational, and ethical elements to create superior organizational solutions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab II: Integrated Case Study (30 min) -->
+        <div id="tab2" class="tab-content hidden flex flex-col gap-4">
+            <div class="bg-white rounded-xl shadow p-6 border-t-4 border-montanoBlue">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-gray-800 flex items-center gap-2">
+                        <i class="fa-solid fa-users-gear text-montanoBlue text-xl"></i> Integrated Case Study & Team Solutions (30 minutes)
+                    </h3>
+                    <span class="text-xs bg-blue-100 text-montanoBlue font-bold px-3 py-1 rounded-full">Collaborative Work</span>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-gray-50 p-4 rounded-xl border border-gray-200">
+                        <h4 class="font-bold text-montanoBlue mb-2"><i class="fa-solid fa-building-user mr-1"></i> Scenario: Apex Marketing Crisis</h4>
+                        <p class="text-xs text-gray-700 leading-relaxed mb-3">"A fast-growing creative marketing agency faces high employee turnover, interdepartmental conflict between sales and design teams, lagging motivation, and an ambiguous performance review process. Furthermore, a recent campaign pushed ethical boundaries."</p>
+                        <p class="text-xs font-semibold text-gray-800">Your Team Task (15 min analysis + 15 min presentation):</p>
+                        <ul class="text-xs text-gray-600 space-y-1 mt-1 list-disc list-inside">
+                            <li>Identify root causes using I/O psychology & emotional intelligence principles.</li>
+                            <li>Design a structured intervention incorporating KPIs, conflict mediation, and ethical leadership.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 flex flex-col justify-between">
+                        <div>
+                            <h4 class="font-bold text-montanoGreen mb-2"><i class="fa-solid fa-chalkboard-user mr-1"></i> Plenary Presentation Guidelines</h4>
+                            <ul class="text-xs text-gray-700 space-y-2">
+                                <li><strong>Structure:</strong> Outline the diagnosis, proposed strategy, and expected measurable outcomes.</li>
+                                <li><strong>Professional Tone:</strong> Use advanced B2-C1 ESL marketing and psychological vocabulary.</li>
+                                <li><strong>Q&A Defense:</strong> Respond constructively to peer and teacher queries.</li>
+                            </ul>
+                        </div>
+                        <div class="mt-3">
+                            <button onclick="triggerTriviaModal('Why is multidisciplinary integration essential?', 'Because real-world workplace challenges never exist in isolation; solving them requires blending emotional intelligence, operational metrics, and strict ethics.')" class="w-full text-xs bg-white p-2.5 rounded border border-gray-300 hover:bg-montanoBg transition font-medium text-montanoBlue">
+                                💡 Key Takeaway: Holistic Problem Solving
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab III: Portfolio & Checklist (20 min) -->
+        <div id="tab3" class="tab-content hidden flex flex-col gap-4">
+            <div class="bg-white rounded-xl shadow p-6 border-t-4 border-montanoGreen">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-gray-800 flex items-center gap-2">
+                        <i class="fa-solid fa-folder-open text-montanoGreen text-xl"></i> Portfolio Organization & Peer Checklist (20 minutes)
+                    </h3>
+                    <span class="text-xs bg-emerald-100 text-montanoGreen font-bold px-3 py-1 rounded-full">Activity 4 Finalization</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-montanoBg p-5 rounded-xl border border-montanoLightBlue">
+                        <h4 class="font-bold text-montanoBlue mb-3"><i class="fa-solid fa-list-check mr-1"></i> Activity 4 Portfolio Deliverables Checklist</h4>
+                        <div class="space-y-2 text-xs text-gray-700">
+                            <label class="flex items-center gap-2 bg-white p-2 rounded shadow-sm cursor-pointer">
+                                <input type="checkbox" class="rounded text-montanoBlue"> Emotional intelligence self-assessment & communication notes
+                            </label>
+                            <label class="flex items-center gap-2 bg-white p-2 rounded shadow-sm cursor-pointer">
+                                <input type="checkbox" class="rounded text-montanoBlue"> Marketing KPIs and performance evaluation framework
+                            </label>
+                            <label class="flex items-center gap-2 bg-white p-2 rounded shadow-sm cursor-pointer">
+                                <input type="checkbox" class="rounded text-montanoBlue"> Talent development & employee training proposal
+                            </label>
+                            <label class="flex items-center gap-2 bg-white p-2 rounded shadow-sm cursor-pointer">
+                                <input type="checkbox" class="rounded text-montanoBlue"> Conflict resolution plan & business ethics case solution
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-xl border border-gray-200">
+                        <h4 class="font-bold text-gray-800 mb-2"><i class="fa-solid fa-people-arrows mr-1"></i> Peer Review Protocol</h4>
+                        <p class="text-xs text-gray-700 mb-3">Exchange your digital portfolio link or folder with a partner. Use the evaluation criteria below to provide constructive feedback before final submission.</p>
+                        <div class="p-3 bg-emerald-50 rounded-lg border border-emerald-100 text-xs text-montanoGreen">
+                            <i class="fa-solid fa-seedling mr-1"></i> <strong>Montano Habit:</strong> Begin with the End in Mind (Ensuring every document meets professional standards before submission).
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab IV: Reflection & Exit Ticket (10 min) -->
+        <div id="tab4" class="tab-content hidden flex flex-col gap-4">
+            <div class="bg-white rounded-xl shadow p-6 border-t-4 border-montanoOlive">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-gray-800 flex items-center gap-2">
+                        <i class="fa-solid fa-flag-checkered text-montanoOlive text-xl"></i> Individual Reflection & Exit Ticket (10 minutes)
+                    </h3>
+                    <span class="text-xs bg-lime-100 text-montanoOlive font-bold px-3 py-1 rounded-full">Unit Closure & Activity 4 Due</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-gray-50 p-4 rounded-xl border border-gray-200">
+                        <h4 class="font-bold text-gray-800 mb-2"><i class="fa-solid fa-pen-nib mr-1"></i> Individual Reflection Prompt</h4>
+                        <p class="text-xs text-gray-700 mb-3 italic">"Which workplace dynamic topic from Unit 3 impacted your professional perspective the most, and how will you apply it in your future marketing career?"</p>
+                        <div class="p-3 bg-white rounded border border-gray-300 text-xs text-gray-500">
+                            Write a brief 4-5 sentence reflection in your notebook or digital drive document.
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-4 rounded-xl border border-gray-200">
+                        <h4 class="font-bold text-gray-800 mb-2"><i class="fa-solid fa-cloud-arrow-up mr-1"></i> Activity 4 Submission</h4>
+                        <p class="text-xs text-gray-700 mb-3">Ensure your complete Unit 3 Portfolio (Activities 1, 2, 3, and 4) is fully organized and submitted through the school portal by the end of the session.</p>
+                        <div class="p-3 bg-emerald-50 rounded border border-emerald-100 text-xs font-bold text-montanoGreen">
+                            STATUS: Activity 4 Due Today! Excellent work throughout Unit 3.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Evaluation Rubric -->
+                <div class="bg-white p-4 rounded-xl border border-gray-200">
+                    <h4 class="font-bold text-gray-800 mb-3"><i class="fa-solid fa-list-check text-montanoGreen mr-2"></i> Summative Portfolio Rubric</h4>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-xs text-left text-gray-700 border border-gray-200">
+                            <thead class="bg-montanoBg text-montanoBlue uppercase font-semibold">
+                                <tr>
+                                    <th class="p-2.5 border-b">Evaluation Criteria</th>
+                                    <th class="p-2.5 border-b text-center">Exceeds (4)</th>
+                                    <th class="p-2.5 border-b text-center">Proficient (3)</th>
+                                    <th class="p-2.5 border-b text-center">In Progress (2)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="p-2.5 border-b font-medium">1. Comprehensive Integration</td>
+                                    <td class="p-2.5 border-b text-center">Seamlessly weaves EQ, I/O psychology, KPIs, and ethics</td>
+                                    <td class="p-2.5 border-b text-center">Adequately addresses core unit topics</td>
+                                    <td class="p-2.5 border-b text-center">Disconnected concepts</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="p-2.5 border-b font-medium">2. Problem-Solving & Case Analysis</td>
+                                    <td class="p-2.5 border-b text-center">Innovative, highly professional marketing solutions</td>
+                                    <td class="p-2.5 border-b text-center">Logical and practical recommendations</td>
+                                    <td class="p-2.5 border-b text-center">Superficial analysis</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2.5 font-medium">3. Portfolio Completeness & Format</td>
+                                    <td class="p-2.5 text-center">Immaculate B2-C1 ESL presentation and full evidence</td>
+                                    <td class="p-2.5 text-center">Complete portfolio deliverables</td>
+                                    <td class="p-2.5 text-center">Missing elements or formatting errors</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Custom Modal for Interactive Prompts -->
+    <div id="triviaModal" class="fixed inset-0 bg-black/50 hidden flex items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border-t-8 border-montanoBlue">
+            <h3 id="modalTitle" class="text-lg font-bold text-gray-800 mb-2">Interactive Reflection</h3>
+            <p id="modalBody" class="text-sm text-gray-600 mb-6 leading-relaxed"></p>
+            <div class="flex justify-end">
+                <button onclick="closeTriviaModal()" class="bg-montanoBlue text-white px-5 py-2 rounded-lg font-bold text-sm shadow hover:bg-sky-700 transition">
+                    Got it!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-montanoBlue', 'text-white', 'shadow');
+                btn.classList.add('bg-white', 'text-gray-700');
+            });
+
+            document.getElementById(tabId).classList.remove('hidden');
+            const activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.classList.remove('bg-white', 'text-gray-700');
+            activeBtn.classList.add('bg-montanoBlue', 'text-white', 'shadow');
+        }
+
+        function toggleAccordion(id) {
+            const el = document.getElementById(id);
+            const icon = document.getElementById('accordionIcon');
+            el.classList.toggle('hidden');
+            icon.classList.toggle('fa-chevron-down');
+            icon.classList.toggle('fa-chevron-up');
+        }
+
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.error("Error attempting to enable full-screen mode:", err.message);
+                });
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+
+        function triggerTriviaModal(title, body) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalBody').innerText = body;
+            document.getElementById('triviaModal').classList.remove('hidden');
+        }
+
+        function closeTriviaModal() {
+            document.getElementById('triviaModal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
